@@ -2,8 +2,8 @@ use cozy_chess::Board;
 use cozy_chess::Color::{Black, White};
 use cozy_chess::Piece::{Bishop, Knight, Pawn, Queen, Rook};
 use crate::defs;
-fn eval(board:Board) -> i32 {
-    let mut eval_score = 0;
+pub fn eval(board:&Board) -> i32 {
+    let mut eval_score: i32 = 0;
     eval_score += board.colored_pieces(White, Pawn).len() as i32  * defs::PAWN_VAL;
     eval_score += board.colored_pieces(White, Knight).len() as i32  * defs::KNIGHT_VAL;
     eval_score += board.colored_pieces(White, Bishop).len() as i32  * defs::BISHOP_VAL;
